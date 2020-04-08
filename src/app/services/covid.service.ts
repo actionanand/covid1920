@@ -10,15 +10,15 @@ export class CovidService {
 
   constructor(private http: HttpClient) { }
 
+  indiaCovid: string[];
+
   getIndia() {
     let countryParams = new HttpParams();
     countryParams = countryParams.append('country', 'India');
 
     return this.http.get(environment.url,
-    { headers: new HttpHeaders({
-      'x-rapidapi-host': environment.host,
-      'x-rapidapi-key': environment.key }),
-    params: countryParams
+    { headers: new HttpHeaders({'x-rapidapi-host': environment.host}),
+    params: countryParams, responseType: 'json'
     });
   }
 }
