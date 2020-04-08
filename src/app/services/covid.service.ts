@@ -10,8 +10,6 @@ export class CovidService {
 
   constructor(private http: HttpClient) { }
 
-  indiaCovid: string[];
-
   getIndia() {
     let countryParams = new HttpParams();
     countryParams = countryParams.append('country', 'India');
