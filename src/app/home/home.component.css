@@ -14,3 +14,9 @@
     width: 100%;
     box-shadow: 2px 2px 5px;
   }
+
+  mat-card, mat-chip-list {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+  }

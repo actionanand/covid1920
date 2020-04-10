@@ -1,0 +1,8 @@
+.example-card {
+    max-width: 400px;
+  }
+  
+  .example-header-image {
+    background-image: url('https://cdn.pixabay.com/photo/2020/03/08/23/24/coronavirus-4914028_960_720.jpg');
+    background-size: cover;
+  }

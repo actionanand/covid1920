@@ -16,12 +16,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './header/header.component';
 import { AuthInterceptorService } from './services/auth-interceptor.service';
 import { HomeComponent } from './home/home.component';
+import { HelpComponent } from './help/help.component';
+import { Page404Component } from './page404/page404.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    HomeComponent
+    HomeComponent,
+    HelpComponent,
+    Page404Component,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
