@@ -9,6 +9,9 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatSelectModule } from '@angular/material/select';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { MatListModule } from '@angular/material/list';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +22,8 @@ import { HomeComponent } from './home/home.component';
 import { HelpComponent } from './help/help.component';
 import { Page404Component } from './page404/page404.component';
 import { FooterComponent } from './footer/footer.component';
+import { IndiaComponent } from './india/india.component';
+import { DistrictEntrycompComponent } from './district-entrycomp/district-entrycomp.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +32,9 @@ import { FooterComponent } from './footer/footer.component';
     HomeComponent,
     HelpComponent,
     Page404Component,
-    FooterComponent
+    FooterComponent,
+    IndiaComponent,
+    DistrictEntrycompComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +47,10 @@ import { FooterComponent } from './footer/footer.component';
     MatExpansionModule,
     MatSelectModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatListModule,
+    MatProgressBarModule,
+    MatProgressSpinnerModule
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true}],
   bootstrap: [AppComponent]

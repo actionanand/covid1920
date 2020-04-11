@@ -1,0 +1,31 @@
+<div *ngIf="!entryComp && !isLoading">
+    <mat-chip-list aria-label="Fish selection" *ngIf="covidRawData?.total_values as covidIn">
+        <mat-chip color="orange" selected> Active:&nbsp; <b>{{ covidIn.active }}</b></mat-chip>
+        <mat-chip color="orange" selected> Confirmed:&nbsp; <b>{{ covidIn.confirmed }}</b></mat-chip>
+        <mat-chip color="warn" selected> Deaths:&nbsp; <b>{{ covidIn.deaths }}</b></mat-chip>
+        <mat-chip color="accent" selected> Recovered:&nbsp; <b>{{ covidIn.recovered }}</b></mat-chip>
+        <mat-chip color="primary" selected>Last Update:&nbsp; <em>{{ covidIn.lastupdatedtime | date: "full" }}</em></mat-chip>
+    </mat-chip-list>
+    <br>
+
+    <mat-accordion multi="true" *ngIf="covidRawData?.state_wise as covidIn">
+        <mat-expansion-panel *ngFor="let covid19 of covidIn | keyvalue">
+                <mat-expansion-panel-header>
+                    {{ covid19.value.state }}
+                </mat-expansion-panel-header>
+                <mat-chip-list aria-label="Fish selection">
+                    <mat-chip color="primary" selected>Active:&nbsp; <b>{{ covid19.value.active }}</b> </mat-chip>
+                    <mat-chip color="primary" selected>Confirmed:&nbsp; <b>{{ covid19.value.confirmed }}</b> </mat-chip>
+                    <mat-chip color="accent" selected>Recovered:&nbsp; <b>{{ covid19.value.recovered }}</b> </mat-chip>
+                    <mat-chip color="warn" selected>Deaths:&nbsp; <b>{{ covid19.value.deaths }}</b> </mat-chip>
+                </mat-chip-list>
+                <mat-action-row>
+                    <button mat-stroked-button color="accent" (click)="openEntryComp(covid19.value.state)">More info</button>
+                </mat-action-row>
+        </mat-expansion-panel>
+    </mat-accordion>
+</div>
+<div *ngIf="isLoading && !entryComp" class="spinner">
+    <mat-spinner color="accent"></mat-spinner>
+</div>
+<app-district-entrycomp *ngIf="entryComp && !isLoading" [indianState]="passStateName"></app-district-entrycomp>

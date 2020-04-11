@@ -2,3 +2,10 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-chip-list-wrapper  {
+    display: flex;
+    align-items: flex-start;
+    align-content: center;
+    justify-content: center;
+  }

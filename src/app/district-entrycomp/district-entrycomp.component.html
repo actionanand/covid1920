@@ -1,0 +1,13 @@
+<mat-accordion multi="true">
+    <mat-expansion-panel *ngFor="let covid19 of covidStates[stateName].district | keyvalue">
+            <mat-expansion-panel-header>
+                {{ covid19.key }}
+            </mat-expansion-panel-header>
+            <mat-chip-list aria-label="Fish selection">
+                <mat-chip color="primary" selected>Confirmed:&nbsp; <b>{{ covid19.value.confirmed }}</b> </mat-chip>
+            </mat-chip-list>
+            <mat-action-row>
+            </mat-action-row>
+    </mat-expansion-panel>
+</mat-accordion>
+

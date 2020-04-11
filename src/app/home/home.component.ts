@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   covidSub: Subscription;
   availableCountries: string[];
   selectedValue: string;
+  isLoading: boolean = true;
 
   constructor(private covidServ: CovidService) {}
 
@@ -32,17 +33,20 @@ export class HomeComponent implements OnInit, OnDestroy {
       this.covidArray = result.data.covid19Stats;
       this.lastUpdated = result.data.lastChecked;
       this.countryName = result.data.covid19Stats[0].country;
+      this.isLoading = false;
       // console.log(this.covidArray.length);
     });
 
   }
 
   onSubmit(f: NgForm) {
+    this.isLoading = true;
     this.covidSub = this.covidServ.getCovidInfo(this.selectedValue).subscribe(result => {
       // console.log(result);
       this.covidArray = result.data.covid19Stats;
       this.lastUpdated = result.data.lastChecked;
       this.countryName = result.data.covid19Stats[0].country;
+    this.isLoading = false;
       // console.log(this.covidArray.length);
     });
   }

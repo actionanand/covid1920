@@ -3,9 +3,11 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { HelpComponent } from './help/help.component';
 import { Page404Component } from './page404/page404.component';
+import { IndiaComponent } from './india/india.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
+  { path: 'india', component: IndiaComponent },
   { path: 'help', component: HelpComponent },
   { path: '404', component: Page404Component },
   { path: '**', component: Page404Component }

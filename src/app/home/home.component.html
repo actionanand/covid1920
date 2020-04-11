@@ -14,25 +14,28 @@
   </form>
 </mat-card>
 <br>
-<mat-chip-list aria-label="Fish selection" *ngIf="covidArray?.length > 0">
-    <mat-chip color="accent" selected> {{ countryName }}</mat-chip>
-    <mat-chip color="primary" selected>Last Update: {{ lastUpdated | date:"full" }}</mat-chip>
-</mat-chip-list>
-<br>
-<mat-accordion multi="true" *ngIf="covidArray?.length > 0">
-    <mat-expansion-panel *ngFor="let covid19 of covidArray">
-            <mat-expansion-panel-header>
-                {{ covid19.country }} - {{ covid19.province }} {{ covid19.city }}
-            </mat-expansion-panel-header>
-            <mat-chip-list aria-label="Fish selection">
-                <mat-chip color="primary" selected>Confirmed: {{ covid19.confirmed }} </mat-chip>
-                <mat-chip color="accent" selected>Recovered: {{ covid19.recovered }} </mat-chip>
-                <mat-chip color="warn" selected>Deaths: {{ covid19.deaths }} </mat-chip>
-            </mat-chip-list>
-            <mat-action-row></mat-action-row>
-    </mat-expansion-panel>
-</mat-accordion>
+<div *ngIf="!isLoading">
+  <mat-chip-list aria-label="Fish selection" *ngIf="covidArray?.length > 0">
+      <mat-chip color="accent" selected> <b>{{ countryName }}</b></mat-chip>
+      <mat-chip color="primary" selected>Last Update : &nbsp; <em>{{ lastUpdated | date: "full" }}</em></mat-chip>
+  </mat-chip-list>
+  <br>
+  <mat-accordion multi="true" *ngIf="covidArray?.length > 0">
+      <mat-expansion-panel *ngFor="let covid19 of covidArray">
+              <mat-expansion-panel-header>
+                  {{ covid19.country }} - {{ covid19.province }} {{ covid19.city }}
+              </mat-expansion-panel-header>
+              <mat-chip-list aria-label="Fish selection">
+                  <mat-chip color="primary" selected>Confirmed:&nbsp; <b>{{ covid19.confirmed }}</b> </mat-chip>
+                  <mat-chip color="accent" selected>Recovered:&nbsp; <b>{{ covid19.recovered }}</b> </mat-chip>
+                  <mat-chip color="warn" selected>Deaths:&nbsp; <b>{{ covid19.deaths }}</b> </mat-chip>
+              </mat-chip-list>
+              <mat-action-row></mat-action-row>
+      </mat-expansion-panel>
+  </mat-accordion>
+</div>
 
+<mat-progress-bar mode="indeterminate" color="accent" *ngIf="isLoading"></mat-progress-bar>
 
 <div class="flex-cont">
     <div class="post-image">
